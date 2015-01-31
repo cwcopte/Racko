@@ -116,7 +116,7 @@ def does_user_begin():
 
 def print_top_to_bottom(rack):
     '''print a rack out from top to bottom'''
-    for index in (0,10):
+    for index in range(0,10):
         print rack[index]
     print '\n'
 
