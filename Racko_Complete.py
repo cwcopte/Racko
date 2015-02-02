@@ -1,3 +1,5 @@
+# authors -- Zi Chen  and  Wei Chen
+
 import random
 
 def main():
@@ -36,13 +38,17 @@ def main():
         print "The top card of discard pile is: ", discard[-1]
         choice=raw_input('Do you want this card? y/n:  ')
 
+        while (choice!='y') and (choice!='n'):   # ensure user to input right syntax choice
+            choice=raw_input('Do you want this card? y/n:  ')
+            
+
         print "The following are your hand:"
         print_top_to_bottom(human_hand)
 
         if choice == 'y':
             card=discard.pop()            
 
-            card_to_be_replaced=input('Plese enter the card to be replaced: ')
+            card_to_be_replaced=input('Plese enter the card(number) to be replaced: ')
             find_and_replace(card,card_to_be_replaced,human_hand)
 
         elif choice == 'n':
@@ -51,10 +57,13 @@ def main():
 
             secondChoice=raw_input('Do you want to keep it? y/n:  ')
 
+            while (secondChoice!='y') and (secondChoice!='n'):   # ensure user to input right syntax choice
+                secondChoice=raw_input('Do you want to keep it? y/n:  ')
+
             if secondChoice == 'y':
-                card_to_be_replaced=input('Plese enter the card to be replaced: ')
+                card_to_be_replaced=input('Plese enter the card(number) to be replaced: ')
                 find_and_replace(card,card_to_be_replaced,human_hand)
-            else:
+            elif secondChoice == 'n':
                 discard.append(card)
 
         print "The following are your hand:"
@@ -171,7 +180,4 @@ def computer_play(hand):
 
 if __name__ == '__main__':
     main()
-        
-    
-
     
